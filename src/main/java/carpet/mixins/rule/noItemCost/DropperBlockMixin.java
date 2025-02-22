@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class DropperBlockMixin {
     @Redirect(method = "dispense", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"))
     public void setStackNoItemCost(DispenserBlockEntity blockEntity, int slot, ItemStack stack) {
-        if ("none".equals(CarpetSettings.dropperNoItemCost)) {
+        if ("off".equals(CarpetSettings.dropperNoItemCost)) {
             blockEntity.setStack(slot, stack);
         } else if ("wool".equals(CarpetSettings.dropperNoItemCost) &&
                 blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).getBlock() == Blocks.WOOL) {

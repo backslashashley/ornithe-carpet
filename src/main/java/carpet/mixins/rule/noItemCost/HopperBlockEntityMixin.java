@@ -14,9 +14,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class HopperBlockEntityMixin {
     @Redirect(method = "pushItems()Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/entity/HopperBlockEntity;removeStack(II)Lnet/minecraft/item/ItemStack;"))
     public ItemStack redirectNoItemCost(HopperBlockEntity self, int slot, int amount) {
-        if ("none".equals(CarpetSettings.hopperNoItemCost))
+        if ("off".equals(CarpetSettings.hopperNoItemCost))
             return self.removeStack(slot, amount);
-        boolean noCost = false;
+        boolean noCost;
         if ("all".equals(CarpetSettings.hopperNoItemCost)) noCost = true;
         else {
             World world = self.getWorld();
