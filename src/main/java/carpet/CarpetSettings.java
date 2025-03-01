@@ -255,6 +255,17 @@ public class CarpetSettings {
             validators = RPModifier.class)
     public static boolean redstonePower = true;
 
+    @Rule(
+            desc = "Enables /chunk command",
+            extra = {
+                    "chunk info command"
+            },
+            categories = {COMMAND,CREATIVE,FEATURE,POPULATION},
+            validators = CarpetPermissionLevel.class,
+            options = {"true", "false", "ops", "0", "2", "4"}
+    )
+    public static String chunkCommand = "false";
+
     /*
           ____                     _    _
          / ___| _ __   ___   __ _ | |_ (_)__   __  ___

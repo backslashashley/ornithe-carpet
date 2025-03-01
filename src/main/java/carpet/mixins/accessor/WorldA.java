@@ -12,4 +12,7 @@ public interface WorldA {
 
     @Invoker("tickPlayers")
     void invokeTickPlayers();
+
+    @Invoker("isChunkLoadedAt")
+    boolean invokeIsChunkLoadedAt(int chunkX, int chunkZ, boolean allowEmpty);
 }

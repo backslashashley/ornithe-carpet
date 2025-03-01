@@ -1,11 +1,13 @@
 package carpet;
 
 import carpet.api.settings.SettingsManager;
+import carpet.commands.ChunkCommand;
 import carpet.commands.CounterCommand;
 import carpet.commands.LogCommand;
 import carpet.logging.HudController;
 import carpet.logging.LoggerRegistry;
 import carpet.network.ServerNetworkHandler;
+import com.google.common.collect.Lists;
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.handler.CommandRegistry;
@@ -35,6 +37,9 @@ public class CarpetServer {
     public static void manageExtension(CarpetExtension extension) {
         extensions.add(extension);
     }
+
+    // for chunk command
+    public static List<Long> removeChunk = Lists.newArrayList();
 
     public static void init() {
         // init mixin extras
@@ -73,6 +78,7 @@ public class CarpetServer {
         registry.register(new SettingsManager.CarpetCommand(settingsManager));
         registry.register(new CounterCommand());
         registry.register(new LogCommand());
+        registry.register(new ChunkCommand());
 
         extensions.forEach(e -> e.registerCommands(registry));
     }
