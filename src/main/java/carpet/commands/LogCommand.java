@@ -1,8 +1,8 @@
 package carpet.commands;
 
-import carpet.logging.Logger;
-import carpet.logging.LoggerOptions;
-import carpet.logging.LoggerRegistry;
+import carpet.api.log.Logger;
+import carpet.log.framework.LoggerOptions;
+import carpet.log.framework.LoggerRegistry;
 import carpet.CarpetSettings;
 import carpet.utils.Messenger;
 import net.minecraft.entity.living.player.PlayerEntity;

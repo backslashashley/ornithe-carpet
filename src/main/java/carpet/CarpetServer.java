@@ -3,8 +3,8 @@ package carpet;
 import carpet.api.settings.SettingsManager;
 import carpet.commands.CounterCommand;
 import carpet.commands.LogCommand;
-import carpet.logging.HudController;
-import carpet.logging.LoggerRegistry;
+import carpet.log.framework.HudController;
+import carpet.log.framework.LoggerRegistry;
 import carpet.network.ServerNetworkHandler;
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import net.minecraft.server.MinecraftServer;
@@ -36,9 +36,9 @@ public class CarpetServer {
         extensions.add(extension);
     }
 
-    public static void init() {
+    public static void preLaunch() {
         // init mixin extras
-        MixinExtrasBootstrap.init();
+//        MixinExtrasBootstrap.init();
     }
 
     public static void onGameStarted() {
@@ -62,7 +62,7 @@ public class CarpetServer {
     public static void tick(MinecraftServer server) {
         // todo tickrate
 
-        HudController.updateHUD(server);
+        HudController.updateHud(server);
         extensions.forEach(e -> e.onTick(server));
     }
 
