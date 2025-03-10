@@ -255,6 +255,7 @@ public class CarpetSettings {
             validators = RPModifier.class)
     public static boolean redstonePower = true;
 
+
     /*
           ____                     _    _
          / ___| _ __   ___   __ _ | |_ (_)__   __  ___
@@ -406,6 +407,18 @@ public class CarpetSettings {
 
 
     // COMMAND // not sure how to generate those BIG comments
+    @Rule(
+            desc = "Enables /chunk command",
+            extra = {
+                    "chunk info command"
+            },
+            categories = {COMMAND, CREATIVE, FEATURE, POPULATION},
+            validators = CarpetPermissionLevel.class,
+            options = {"true", "false", "ops", "0", "2", "4"}
+    )
+    public static String chunkCommand = "false";
+
+
     @Rule(desc = "Enables /log command to monitor events via chat and overlays", categories = COMMAND)
     public static String commandLog = "true";
 }

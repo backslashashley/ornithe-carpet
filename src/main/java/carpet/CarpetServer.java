@@ -1,6 +1,7 @@
 package carpet;
 
 import carpet.api.settings.SettingsManager;
+import carpet.commands.ChunkCommand;
 import carpet.commands.CounterCommand;
 import carpet.commands.LogCommand;
 import carpet.log.framework.HudController;
@@ -73,6 +74,7 @@ public class CarpetServer {
         registry.register(new SettingsManager.CarpetCommand(settingsManager));
         registry.register(new CounterCommand());
         registry.register(new LogCommand());
+        registry.register(new ChunkCommand());
 
         extensions.forEach(e -> e.registerCommands(registry));
     }
