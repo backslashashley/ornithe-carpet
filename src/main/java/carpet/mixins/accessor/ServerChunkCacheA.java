@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ServerChunkCache.class)
 public interface ServerChunkCacheA {
-	@Accessor("generator")
-	ChunkGenerator getGenerator();
+    @Accessor("generator")
+    ChunkGenerator getGenerator();
 
-	@Accessor("chunks")
-	Long2ObjectMap<WorldChunk> getChunks();
+    @Accessor("chunks")
+    Long2ObjectMap<WorldChunk> getChunks();
 }
 
