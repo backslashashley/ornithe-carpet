@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public abstract class FillCommandMixin {
     @ModifyConstant(method = "run", constant = @Constant(intValue = 32768), expect = 2)
     public int modifyFillLimit(int constant) {
-        return CarpetSettings.blockEventRange;
+        return CarpetSettings.fillLimit;
     }
 }
